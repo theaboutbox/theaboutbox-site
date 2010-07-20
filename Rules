@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'compass'
-Compass.configuration.parse 'config/compass.config'
+Compass.add_project_configuration 'config/compass.config'
 
 compile '/stylesheets/*/' do
    filter :sass, Compass.sass_engine_options
