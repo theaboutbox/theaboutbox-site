@@ -6,8 +6,16 @@ compile '/stylesheets/*/' do
    filter :sass, Compass.sass_engine_options
 end
 
+compile '/scripts/*/' do
+  nil
+end
+
 route '/stylesheets/*/' do
    item.identifier.chop + '.css'
+end
+
+route '/scripts/*/' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
 compile '*' do
