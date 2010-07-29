@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # A list of file extensions that nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
 # will be considered as binary.
@@ -39,3 +40,12 @@ data_sources:
     # The path where layouts should be mounted. The layouts root behaves the
     # same as the items root, but applies to layouts rather than items.
     layouts_root: /
+=======
+--- 
+text_extensions: [ 'css', 'erb', 'haml', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'php', 'rb', 'sass', 'txt', 'scss' ]
+output_dir: output
+data_sources: 
+- items_root: /
+  layouts_root: /
+  type: filesystem_unified
+>>>>>>> 99d46566f29c931065434b37d4ac6808f1c75b4e

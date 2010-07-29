@@ -1,30 +1,43 @@
 #!/usr/bin/env ruby
+require 'compass'
+Compass.add_project_configuration 'config/compass.config'
 
-# A few helpful tips about the Rules file:
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. "/about/" for the file
-#   "content/about.html"). To select all children, grandchildren, ... of an
-#   item, use the pattern "/about/*/"; "/about/*" will also select the parent,
-#   because "*" matches zero or more characters.
+compile '/stylesheets/*/' do
+  case item[:extension]
+  when /sass$/, /scss$/: filter :sass, Compass.sass_engine_options
+  else nil
+  end
+end
+route '/stylesheets/*/' do
+   item.identifier.chop + '.css'
+end
 
-compile '/stylesheet/' do
-  # don't filter or layout
+compile '/scripts/*/' do
+  nil
+end
+route '/scripts/*/' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
+compile '/static/*/' do
+  nil
+end
+route '/static/*/' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
 compile '*' do
-  filter :erb
-  layout 'default'
-end
-
-route '/stylesheet/' do
-  '/style.css'
+  case item[:extension]
+  when /haml$/: filter :haml
+  when /markdown$/, /md$/: filter :kramdown
+  when /erb$/: filter :erb
+  end
+   filter :colorize_syntax
+   layout 'default'
 end
 
 route '*' do
   item.identifier + 'index.html'
 end
 
-layout '*', :erb
+layout '*', :haml, :format => :html5
