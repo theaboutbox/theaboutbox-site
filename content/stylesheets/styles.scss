@@ -1,0 +1,43 @@
+@import "compass/utilities";
+@import "blueprint";
+@import "compass/css3/inline-block";
+
+$nav-background: #444444;
+$nav-highlight-background: #888888; 
+$nav-highlight-text: white;
+$nav-text: white;
+
+
+@include blueprint;
+body {
+    ul.nav {
+        @include column(24,last);
+        @include horizontal-list-container;
+        background-color: $nav-background;
+        margin-bottom: 1em;
+
+        li {
+            @include column(2);
+            @include horizontal-list-item;
+            text-align: center;
+            margin: 0px;
+            
+            a {
+                @include inline-block;
+                @include unstyled-link;
+                  color: $nav-text;
+                  width: 100%;
+                  height: 1.7em;
+                  vertical-align: middle;
+                  font-size: 1.3em;
+                  padding-top: 0.1em;
+            }
+
+            a:hover {
+                background-color: $nav-highlight-background;
+                color: $nav-highlight-text;
+            }
+
+        }
+    }
+}

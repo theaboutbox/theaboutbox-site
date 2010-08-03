@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title
+      = "The Aboutbox, Inc - #{@item[:title]}"
+    %link{ :href => "stylesheets/styles.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
+  %body
+    .container
+      .header
+        %img{:src => '/images/aboutbox_logo.png'}
+        %ul.nav
+          %li 
+            %a{:href =>'/'} Home
+          %li 
+            %a{:href => '/contact'} Contact
+          %li 
+            %a{:href => '/blog'} Blog
+      .content
+        = yield
+      .footer

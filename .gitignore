@@ -2,3 +2,5 @@ tmp
 output
 .DS_Store
 .*.swp
+.sass-cache
+
