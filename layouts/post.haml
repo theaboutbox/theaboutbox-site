@@ -1,0 +1,6 @@
+.post
+  .title
+    %a{:href => url_for(@item)}
+      %h2= @item[:title]
+    .dateline= Time.parse(@item[:created_at]).strftime('%B %d, %Y')
+  ~ @item.compiled_content

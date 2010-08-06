@@ -41,3 +41,30 @@ body {
         }
     }
 }
+
+.content {
+    @include prepend(1);
+    @include column(22);
+}
+
+.contact-form {
+}
+
+.post {
+
+    h2 {
+        margin-bottom: 0px;
+    }
+    .dateline {
+        font-weight: bold;
+    }
+    .title {
+        width: 100%;
+        border-bottom: 1px solid black;
+        margin-bottom: 0.75em;
+
+        a {
+            @include unstyled-link();
+        }
+    }
+}

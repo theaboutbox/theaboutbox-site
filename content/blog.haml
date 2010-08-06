@@ -1,0 +1,4 @@
+%h1 Blog
+- articles = sorted_articles[0..20]
+- articles.each do |article|
+  ~ render('post', :item => article)

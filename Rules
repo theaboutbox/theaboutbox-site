@@ -3,9 +3,11 @@ require 'compass'
 Compass.add_project_configuration 'config/compass.config'
 
 compile '/stylesheets/*/' do
-   filter :sass, Compass.sass_engine_options
+  case item[:extension]
+  when /sass$/, /scss$/ then filter :sass, Compass.sass_engine_options
+  else nil
+  end
 end
-
 route '/stylesheets/*/' do
    item.identifier.chop + '.css'
 end
@@ -18,8 +20,32 @@ route '/images/*/' do
   item.identifier.chop + '.' + item[:extension]
 end
 
+compile '/scripts/*/' do
+  nil
+end
+route '/scripts/*/' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
+compile '/static/*/' do
+  nil
+end
+route '/static/*/' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
+compile '/feed/' do
+  filter :erb
+  #layout nil
+end
+
 compile '*' do
-   filter :haml
+  case item[:extension]
+  when /haml$/ then filter :haml
+  when /markdown$/, /md$/ then filter :kramdown
+  when /erb$/ then filter :erb
+  end
+   filter :colorize_syntax
    layout 'default'
 end
 

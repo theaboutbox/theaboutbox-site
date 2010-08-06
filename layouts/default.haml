@@ -1,9 +1,14 @@
 !!!
 %html
   %head
+    %meta{:http_equiv => "Content-Type", :content => "text/html; charset=UTF-8"}
     %title
       = "The Aboutbox, Inc - #{@item[:title]}"
-    %link{ :href => "stylesheets/styles.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
+    %script{ :src => relative_path_to('/scripts/jquery-1.4.2.min.js') }
+    %link{ :href => relative_path_to("/stylesheets/styles.css"), :rel => "stylesheet", :type => "text/css", :media => "screen" }
+    %link{ :href => relative_path_to("/stylesheets/coderay.css"), :rel => "stylesheet", :type => "text/css", :media => "screen" }
+    %link{ :href => relative_path_to("/feed/"), :type => "application/atom+xml", :rel => "alternate", :title => "The Aboutbox Blog Feed"}
+
   %body
     .container
       .header
@@ -12,9 +17,9 @@
           %li 
             %a{:href =>'/'} Home
           %li 
-            %a{:href => '/contact'} Contact
+            %a{:href => '/contact/'} Contact
           %li 
-            %a{:href => '/blog'} Blog
+            %a{:href => '/blog/'} Blog
       .content
-        = yield
+        ~ yield
       .footer
