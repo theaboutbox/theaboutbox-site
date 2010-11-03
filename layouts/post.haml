@@ -3,4 +3,12 @@
     %a{:href => url_for(@item)}
       %h2= @item[:title]
     .dateline= Time.parse(@item[:created_at]).strftime('%B %d, %Y')
-  ~ @item.compiled_content
+  ~ yield
+  <script>
+  var idcomments_acct = '47e1f5f4dcbc90c59dc3f5900e9c4b56';
+  var idcomments_post_id = '#{@item.identifier.gsub('/','_')}';
+  var idcomments_post_url = '#{url_for(@item)}';
+  </script>
+  <span id="IDCommentsPostTitle" style="display:none"></span>
+  <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+    

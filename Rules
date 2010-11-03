@@ -12,6 +12,13 @@ route '/stylesheets/*/' do
    item.identifier.chop + '.css'
 end
 
+compile '/blog/*/' do
+  filter :kramdown
+  filter :colorize_syntax
+  layout '/post/'
+  layout 'default'
+end
+
 compile '/images/*/' do
   #nothing
 end
@@ -36,7 +43,6 @@ end
 
 compile '/feed/' do
   filter :erb
-  #layout nil
 end
 
 compile '*' do

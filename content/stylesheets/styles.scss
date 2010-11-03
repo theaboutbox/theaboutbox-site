@@ -1,15 +1,16 @@
 @import "compass/utilities";
 @import "blueprint";
 @import "compass/css3/inline-block";
+@import "compass/css3/border-radius";
 
 $nav-background: #444444;
 $nav-highlight-background: #888888; 
 $nav-highlight-text: white;
 $nav-text: white;
 
-
-@include blueprint;
+@include blueprint();
 body {
+    //@include container();
     ul.nav {
         @include column(24,last);
         @include horizontal-list-container;
@@ -43,8 +44,31 @@ body {
 }
 
 .content {
-    @include prepend(1);
-    @include column(22);
+    @include column(24);
+    @include last();
+
+    #page-text
+    {
+        @include column(18);
+    }
+
+    #sidebar
+    {
+        @include column(6);
+        @include last();
+        border-radius: 5px;
+        background-color: #dddddd;
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+    }
 }
 
 .contact-form {
@@ -66,5 +90,15 @@ body {
         a {
             @include unstyled-link();
         }
+    }
+
+    .post-body {
+        @include last;
+    }
+
+    .comments {
+        margin-top: 1em;
+        font-size: 1.5em;
+        width: 100%;
     }
 }

@@ -6,3 +6,6 @@ data_sources:
 - items_root: /
   layouts_root: /
   type: filesystem_unified
+deploy:
+  default:
+    dst: theaboutbox.net:/home/cpope/theaboutbox.com
