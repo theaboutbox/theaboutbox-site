@@ -30,5 +30,5 @@ end
 desc "deploys the blog"
 task :deploy do
   exec 'git add . && git commit -m "New Blog Post" && git push origin master'
-  Rake::Task['deploy:rsync'].invoke
+  Rake::Task['deploy:rsync'].execute
 end
