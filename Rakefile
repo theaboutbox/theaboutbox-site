@@ -27,8 +27,11 @@ EOH
   end
 end
 
-desc "deploys the blog"
-task :deploy do
-  exec 'git add . && git commit -m "New Blog Post" && git push origin master'
-  Rake::Task['deploy:rsync'].execute
+namespace :deploy do
+  desc "deploys the blog"
+  task :github do
+    exec 'git add . && git commit -m "New Blog Post" && git push origin master'
+  end
 end
+
+task :deploy => ['deploy:github','deploy:rsync']
