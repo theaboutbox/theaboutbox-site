@@ -30,7 +30,8 @@ end
 namespace :deploy do
   desc "deploys the blog"
   task :github do
-    exec 'git add . && git commit -m "New Blog Post" && git push origin master'
+    exec 'git add . && git commit -m "New Blog Post"'
+    exec `git push origin master`
   end
 end
 
