@@ -14,7 +14,7 @@ created_at: #{Time.now.strftime('%Y%m%dT%H%M%S')}
 ---
 Put the content of the new blog post here
 EOH
-  filename = "#{title.gsub(/[,\. \-\'"\?]/,'_').downcase}.markdown"
+  filename = "#{title.gsub(/[,\. \-\'"\?\/]/,'_').downcase}.markdown"
   puts "filename: #{filename}"
   post_path = File.join './content/blog', filename
   
