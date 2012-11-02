@@ -2,9 +2,9 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://theaboutbox.com
+url: http://www.theaboutbox.com
 title: The Aboutbox
-subtitle: We build Web, Search and Video applications. We specialize in Flex and Rails development.
+subtitle: We build Web, Search and Video applications.
 author: Cameron Pope
 simple_search: http://google.com/search
 description: We are an experienced consulting and custom software development firm specializing in Web application development. We have delivered many applications using Ruby/Rails and Flex. 

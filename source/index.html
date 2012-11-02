@@ -1,19 +1,24 @@
 ---
 layout: default
 ---
-<div class="content">
+
+<div class="blog-index">
+  {% assign index = true %}
+  {% for post in paginator.posts %}
+  {% assign content = post.content %}
     <article>
-    <h2>Flex and Rails Consulting</h2>
-    <p>We are an experienced consulting and custom software development firm specializing in Web application development. We have delivered many applications using Ruby/Rails and Flex.</p>
-    <h3>Cloud Control</h3>
-    <p>Are you thinking of moving your application to the cloud and wondering about the best way to do it? We have years of experience designing and deploying applcations in the cloud. We can make sure you avoid the common pitfalls and design your application to improve performance and save money.</p>
-    <h3>Search Applications</h3>
-    <p>Do you have a huge amount of content that your users need to find effectively and quickly. We have created high performance search engines for customers who have multiple petabytes of content.</p>
-    <h3>Video Storage and Transcoding</h3>
-    <p>Do you have video content in numberous formats that you need to convert and stream to customers, no matter what platform or mobile device they are using? We can help.</p>
-    <h3>Custom Software Development</h3>
-    <p>We have over ten years experience delivering challenging applications in a timely and cost-conscious manner. We can help you design, develop, deliver or scale any Web application. Contact us and we will be happy to show you how we can help you.</p>
+      {% include article.html %}
     </article>
+  {% endfor %}
+  <div class="pagination">
+    {% if paginator.next_page %}
+      <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
+    {% endif %}
+    <a href="/blog/archives">Blog Archives</a>
+    {% if paginator.previous_page %}
+    <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
+    {% endif %}
+  </div>
 </div>
 <aside class="sidebar">
   {% if site.blog_index_asides.size %}
