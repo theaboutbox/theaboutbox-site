@@ -8,6 +8,7 @@ ssh_user       = "cpope@theaboutbox.com"
 ssh_port       = "22"
 document_root  = "/home/cpope/theaboutbox.com"
 rsync_delete   = true
+rsync_args     = ""
 deploy_default = "rsync"
 
 # This will be configured for you when you run config_deploy
